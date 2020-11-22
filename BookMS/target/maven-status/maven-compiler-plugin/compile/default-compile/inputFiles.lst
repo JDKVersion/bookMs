@@ -1,0 +1,17 @@
+E:\bookMS\BookMS\src\main\java\cn\test\bookms\mybatisGenMan\GeneratorMain.java
+E:\bookMS\BookMS\src\main\java\cn\test\bookms\util\Message.java
+E:\bookMS\BookMS\src\main\java\cn\test\bookms\service\impl\MsCategoryServiceImpl.java
+E:\bookMS\BookMS\src\main\java\cn\test\bookms\mapper\MsAdminMapper.java
+E:\bookMS\BookMS\src\main\java\cn\test\bookms\service\impl\MsBookServiceImpl.java
+E:\bookMS\BookMS\src\main\java\cn\test\bookms\controller\LoginController.java
+E:\bookMS\BookMS\src\main\java\cn\test\bookms\mapper\MsCategoryMapper.java
+E:\bookMS\BookMS\src\main\java\cn\test\bookms\entity\MsAdmin.java
+E:\bookMS\BookMS\src\main\java\cn\test\bookms\service\MsBookService.java
+E:\bookMS\BookMS\src\main\java\cn\test\bookms\controller\BookController.java
+E:\bookMS\BookMS\src\main\java\cn\test\bookms\service\impl\MsAdminServiceImpl.java
+E:\bookMS\BookMS\src\main\java\cn\test\bookms\service\MsCategoryService.java
+E:\bookMS\BookMS\src\main\java\cn\test\bookms\mapper\MsBookMapper.java
+E:\bookMS\BookMS\src\main\java\cn\test\bookms\entity\MsBook.java
+E:\bookMS\BookMS\src\main\java\cn\test\bookms\entity\MsCategory.java
+E:\bookMS\BookMS\src\main\java\cn\test\bookms\entity\PageBean.java
+E:\bookMS\BookMS\src\main\java\cn\test\bookms\service\MsAdminService.java

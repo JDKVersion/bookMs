@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.test.bookms.mapper.MsMemberMapper">
+    <insert id="instertMember" parameterType="cn.test.bookms.entity.MsMembers">
+        insert into ms_members(username,password,memberNo,level,createTime,lastLoginTime)
+        values (#{member.username},#{member.password},#{member.memberNo},#{member.level},#{member.createTime},#{member.lastLoginTime})
+    </insert>
+    <select id="selectByNo" parameterType="java.lang.String" resultType="cn.test.bookms.entity.MsMembers">
+        select
+        username,memberNo,level,createTime,lastLoginTime
+        from ms_members
+        where memberNo=#{memberNo}
+        and password = #{password}
+    </select>
+    <insert id="insertRecord" parameterType="cn.test.bookms.entity.MsRentBookHistory">
+        insert into ms_rentbookhistory (id,title,isbn,author,categoryid,renttime,revertTime,status,memberNo,revertday,revertfee,bookid)
+        values (#{msRentBookHistory.id},#{msRentBookHistory.title},#{msRentBookHistory.isbn},
+        #{msRentBookHistory.author},#{msRentBookHistory.categoryId},#{msRentBookHistory.rentTime},#{msRentBookHistory.revertTime},#{msRentBookHistory.status},#{msRentBookHistory.memberNo},#{msRentBookHistory.revertDay},#{msRentBookHistory.revertFee},#{msRentBookHistory.bookId})
+    </insert>
+    <select id="revertBookList" parameterType="java.util.Map" resultType="cn.test.bookms.entity.MsRentBookHistory">
+        select *
+        from ms_rentbookhistory
+        where ms_rentbookhistory.memberNo =#{memberNo}
+        and   ms_rentbookhistory.status = 0
+        <if test="start!=null and size!=null">
+            limit #{start},#{size}
+        </if>
+    </select>
+
+
+
+    <select id="selectCount" resultType="java.lang.Integer">
+		select count(*) from ms_rentbookhistory
+		where
+		 ms_rentbookhistory.memberNo =#{memberNo}
+		and ms_rentbookhistory.status = 0
+	</select>
+
+    <select id="selectCountRecords" resultType="java.lang.Integer">
+        select count(*) from ms_rentbookhistory
+		where
+		 ms_rentbookhistory.memberNo =#{memberNo}
+    </select>
+
+    <update id="updateStatus">
+        update ms_rentbookhistory set
+        ms_rentbookhistory.status =1
+        where
+        ms_rentbookhistory.id = #{id}
+       and ms_rentbookhistory.memberNo =#{memberNo}
+    </update>
+
+    <select id="selectRecords" parameterType="java.util.Map" resultType="cn.test.bookms.entity.MsRentBookHistory">
+        select *
+        from ms_rentbookhistory
+        where ms_rentbookhistory.memberNo=#{memberNo}
+        <if test="start!=null and size!=null">
+            limit #{start},#{size}
+        </if>
+
+    </select>
+
+    <select id="noRevertCount" resultType="java.lang.Integer">
+        select count(*)
+        from ms_rentbookhistory
+        where ms_rentbookhistory.bookId = #{bookId}
+        and  ms_rentbookhistory.status = 0
+        and ms_rentbookhistory.memberNo=#{memberNo}
+    </select>
+</mapper>
